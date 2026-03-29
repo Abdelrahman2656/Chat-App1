@@ -72,7 +72,7 @@ socket.on('userStartType', () => {
 
 
 socket.on('userStopType', () => {
-    typingIndicator.style.display = 'none'; r
+    typingIndicator.style.display = 'none';
 });
 
 

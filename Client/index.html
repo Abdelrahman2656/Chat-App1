@@ -3,51 +3,88 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chat Interface</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Nexus Chat</title>
+    
+    <!-- Modern Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Bootstrap 5 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="/Client/client.css">
-    <link rel="icon" href=
-    "data:image/png;base64,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"
-            type="image/x-icon" />
+    
+    <!-- Phosphor Icons (Modern aesthetic icons) -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="client.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💬</text></svg>">
 </head>
 <body>
-    <section class="chat-section">
-        <div class="container py-5">
-            <div class="row d-flex justify-content-center">
-                <div class="col-md-10 col-lg-8 col-xl-6">
-                    <div class="card" id="chat2">
-                        <div class="card-header d-flex justify-content-between align-items-center p-3">
-                            <h5 class="mb-0">Chat</h5>
-                           
-                        </div>
-                        <div class="card-body" style="position: relative; height: 400px; overflow-y: auto;">
-                            <!-- Chat Messages -->
-                        <p id="type"></p>
-
-                            <!-- Add more chat messages here -->
-                         
-                        </div>
-                        <div id="typing-indicator" class="typing-indicator">
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                        </div>
-                        <div class="card-footer text-muted d-flex justify-content-start align-items-center p-3">
-                            <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3-bg.webp" alt="avatar" class="avatar">
-                            <input type="text" id="chatInput" class="form-control form-control-lg" placeholder="Type message">
-                            <a class="ms-3 text-muted" href="#!"><i class="fa fa-paperclip"></i></a>
-                            <a class="ms-3 text-muted" href="#!"><i class="fa fa-smile-o"></i></a>
-                            <button onclick="sendMsg()" class="btn"><a class="ms-0" href="#!"><i class="fa fa-paper-plane"></i></a></button>
-                           
-                        </div>
+    <div class="chat-wrapper">
+        <div class="chat-container card shadow-lg p-0">
+            <!-- Header -->
+            <div class="chat-header p-3 d-flex align-items-center justify-content-between">
+                <div class="d-flex align-items-center gap-3">
+                    <div class="header-avatar position-relative">
+                        <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3-bg.webp" alt="Group Avatar">
+                        <span class="online-badge"></span>
                     </div>
+                    <div>
+                        <h5 class="mb-0 text-white fw-bold">Global Lounge</h5>
+                        <small class="text-white-50"><i class="ph-fill ph-circle text-success" style="font-size:0.6rem;"></i> Connected</small>
+                    </div>
+                </div>
+                <div class="header-actions text-white gap-2 d-flex">
+                    <button class="btn btn-icon"><i class="ph ph-video-camera"></i></button>
+                    <button class="btn btn-icon"><i class="ph ph-phone"></i></button>
+                    <button class="btn btn-icon"><i class="ph ph-dots-three-vertical"></i></button>
+                </div>
+            </div>
+
+            <!-- Chat Body (IMPORTANT: client.js targets .card-body to insert messages) -->
+            <div class="card-body chat-body position-relative pb-4">
+                
+                <!-- Welcome Message Start -->
+                <div class="text-center w-100 my-4 message-container-welcome">
+                     <span class="badge rounded-pill badge-glass">Today</span>
+                     <p class="text-muted mt-2" style="font-size: 0.85rem;">Welcome to the real-time chat. Messages are end-to-end encrypted.</p>
+                </div>
+
+                <!-- Messages will be injected here by client.js using .message-container classes -->
+
+                <!-- Typing Indicator Wrapper -->
+                <div id="typing-indicator" class="typing-indicator-wrapper">
+                    <div class="typing-glass">
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Footer / Input Area -->
+            <div class="chat-footer p-3">
+                <div class="input-group-modern d-flex align-items-center gap-2">
+                    <button class="btn btn-action-icon text-muted"><i class="ph ph-paperclip"></i></button>
+                    <button class="btn btn-action-icon text-muted"><i class="ph ph-smiley"></i></button>
+                    
+                    <!-- Input field targeted by client.js using ID chatInput -->
+                    <input type="text" id="chatInput" class="form-control chat-input" placeholder="Type a message..." autocomplete="off">
+                    
+                    <!-- Send button triggers sendMsg() -->
+                    <button onclick="sendMsg()" class="btn btn-send"><i class="ph-fill ph-paper-plane-right"></i></button>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+
+    <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdn.socket.io/4.8.1/socket.io.min.js" integrity="sha384-mkQ3/7FUtcGyoppY6bz/PORYoGqOl7/aSUMn2ymDOJcapfS6PHqxhRTMh1RR0Q6+" crossorigin="anonymous"></script>
-    <script src="/Client/client.js"></script>
+    <script src="https://cdn.socket.io/4.8.1/socket.io.min.js"></script>
+    <script src="client.js"></script>
 </body>
 </html>

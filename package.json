@@ -1,0 +1,15 @@
+{
+  "name": "chat-app-root",
+  "version": "1.0.0",
+  "description": "Root package to manage Client and Server",
+  "scripts": {
+    "server": "cd Server && npm run dev",
+    "server:prod": "cd Server && npm run build && npm run start",
+    "client": "npx serve Client",
+    "start": "npx concurrently \"npm run server\" \"npm run client\""
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2",
+    "serve": "^14.2.6"
+  }
+}
